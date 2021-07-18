@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.5.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group 'com.naveedmomin'
@@ -17,6 +18,20 @@ sourceSets {
     }
 }
 
+jar {
+    manifest{
+        attributes 'Main-Class':''
+    }
+}
+
+assemble.dependsOn(jar)
+
 dependencies {
     compile 'junit:junit:4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'com.h2database:h2'
+//    implementation 'org.springframework.boot:spring-boot-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-mail'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
