@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +37,14 @@ public class CarWasherController {
         cars.add(car3);
 
         return cars;
+    }
+
+    @RequestMapping(value = "carNameFord")
+    public ModelAndView fordJsp() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("name", "ford");
+        modelAndView.setViewName("ford");
+
+        return modelAndView;
     }
 }
