@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.5.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'war'
 }
 
 group 'com.naveedmomin'
@@ -24,7 +25,7 @@ jar {
     }
 }
 
-assemble.dependsOn(jar)
+assemble.dependsOn(war)
 
 dependencies {
     compile 'junit:junit:4.13.2'
@@ -35,4 +36,7 @@ dependencies {
 //    implementation 'org.springframework.boot:spring-boot-data-jpa'
 //    implementation 'org.springframework.boot:spring-boot-mail'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'javax.servlet:jstl:1.2'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 }
